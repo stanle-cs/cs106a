@@ -1,7 +1,8 @@
-For students who uses x86_64 version of Windows and would like to uses the tools provided in the class' download segments:
+For students who uses x86_64 (64-bit) version of Windows and would like to use the tools provided in the class' download segment:
   1. Download the zip files from the class and unzip them. Open the eclipse folder.
   2. Download the correct version of Java used by that version of Eclipse: per the Readme of Eclipse 3.2.1, it targets Java 1.4.2_10 which can be downloaded here:
       (Needs to sign up for an account. A free hassle.)
+      Remember to download the x86 version (I586-p.exe one).
       https://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase14-419411.html
   3. Install this version of java into eclipse/jre and you can now start the class.
 That's it. Have fun and good luck!
