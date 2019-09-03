@@ -13,6 +13,7 @@ import stanford.karel.*;
 
 public class StoneMasonKarel extends SuperKarel {
 
+	// Main program
 	public void run() {
 		while (frontIsClear()) {
 			repairArch();
