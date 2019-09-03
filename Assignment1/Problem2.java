@@ -2,7 +2,7 @@
  * File: Problem2.java
  * --------------------------
  * The StoneMasonKarel subclass here will work like this:
- * 	- Work on the current column
+ *  - Work on the current column
  *  - Once done, return to the original position & orientation
  *  - Move to next column
  *  - Check if at the end, if yes stop
