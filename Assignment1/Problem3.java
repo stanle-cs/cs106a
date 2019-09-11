@@ -1,5 +1,5 @@
 /*
- * File: CheckerboardKarel.java
+ * File: Problem3.java
  * ----------------------------
  * When you finish writing it, the CheckerboardKarel class should draw
  * a checkerboard using beepers, as described in Assignment 1.  You
@@ -22,7 +22,7 @@ public class CheckerboardKarel extends SuperKarel {
 	}
 	
 	// Precon: None
-	// Postcon: The spot behind is checked to make sure no beepers present
+	// Postcon: The spot behind is checked, if it is empty and the current space doesn't have a beeper one will be put down.
 	private void checkBehind() {
 		turnAround();
 		if (frontIsClear()) {
@@ -42,8 +42,8 @@ public class CheckerboardKarel extends SuperKarel {
 		}	
 	} 
 	
-	// Precon:
-	// Postcon:
+	// Precon: None
+	// Postcon: The space below will be checked, if it is empty and the current space doesn't have a beeper one will be put down.
 	private void checkBelow() {
 		if (facingWest()) {
 			turnRight();
@@ -103,8 +103,8 @@ public class CheckerboardKarel extends SuperKarel {
 		}
 	}
 	
-	// Precon:
-	// Postcon:
+	// Precon: Usually at the end of the map, and the last space can't be put a beeper making the loop infinite
+	// Postcon: Karel moved to the nearest beeper available, thus ending the loop
 	private void findNearestBeeper() {
 		if (noBeepersPresent()) {
 			turnAround();
