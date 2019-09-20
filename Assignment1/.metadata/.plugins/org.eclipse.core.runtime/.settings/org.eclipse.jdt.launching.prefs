@@ -1,0 +1,3 @@
+#Sat Sep 07 19:37:56 CDT 2019
+eclipse.preferences.version=1
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1567903034614">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1567903034614" javadocURL\="http\://java.sun.com/j2se/1.5.0/docs/api/" name\="jre" path\="D\:\\CS-Stanford\\CS106A\\eclipse\\jre"/>\r\n</vmType>\r\n</vmSettings>\r\n
