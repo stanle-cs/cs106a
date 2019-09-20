@@ -5,6 +5,8 @@
  * a checkerboard using beepers, as described in Assignment 1.  You
  * should make sure that your program works for all of the sample
  * worlds supplied in the starter folder.
+ * 
+ * Stanle-cs said:
  * How this class work:
  * 1. Karel always try to put the first beeper down if possible.
  * 2. Karel move on to the next space if available.

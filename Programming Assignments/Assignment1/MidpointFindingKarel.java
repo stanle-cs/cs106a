@@ -9,6 +9,16 @@
  * stops.  The world may be of any size, but you are allowed to
  * assume that it is at least as tall as it is wide.
  * 
+ * Stanle-cs said:
+ * there may be other more elegant way to to this, but this is
+ * the most generalized algorithm I can think of. Maybe I don't need
+ * to check everytime I put down a beeper but it is better just in case.
+ * How this class work:
+ *  1. Fill half the row with beepers (fill one space, skip one space).
+ *  2. Push all of them to the corner.
+ *  3. Re-distribute them until each beeper is in one space. This means
+ *  the last beeper is at the middle of the row.
+ *  4. Collect all other beepers and come back to the beeper in the middle.
  */
 
 import stanford.karel.*;

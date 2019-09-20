@@ -1,6 +1,8 @@
 /*
  * File: StoneMasonKarel.java
  * --------------------------
+ * 
+ * Stanle-cs said:
  * The StoneMasonKarel subclass here will work like this:
  *  - Work on the current column
  *  - Once done, return to the original position & orientation
@@ -21,7 +23,7 @@ public class StoneMasonKarel extends SuperKarel {
 			moveToNextOne();
 		}
 		repairArch();  // At last column, the loop exited without working, so we add another work here
-		getBack();
+		getBack();		// This is known as OBOB
 	}
 	
 	/* Repairing arch:

@@ -7,6 +7,7 @@
  * newspaper (represented by a beeper, of course), and then return
  * to its initial position in the upper left corner of the house.
  * 
+ * Stanle-cs said:
  * In this assignment, the initial position of Karel and the location
  * of the beeper are not randomized. Hence, there is no need to
  * create a generalized algorithm for Karel. However, if we would 
