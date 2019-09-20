@@ -1,0 +1,10 @@
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\697870361.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\3565871090.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\4256633560.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\185274013.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\1254139063.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\4109203242.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\4273075105.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\1306855067.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\256652867.index
+D:\CS-Stanford\CS106A\cs106a_github\Section Assignments\.metadata\.plugins\org.eclipse.jdt.core\4200086246.index

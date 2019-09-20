@@ -1,0 +1,41 @@
+/*
+ * File: DefendDemocracy.java
+ * --------------------------
+ * 
+ * Stanle-cs said:
+ * This class work like this:
+ *  1. 
+ */
+
+import stanford.karel.*;
+
+public class DefendDemocracy extends SuperKarel{
+	public void run() {
+		while (frontIsClear()) {
+			move();
+			work();
+		}
+	}
+	private void work() {
+		if (noBeepersPresent()) {
+			putBeeper();
+			turnLeft();
+			cleanUp();
+			turnAround();
+			cleanUp();
+			turnLeft();
+			move();
+		}
+		else {
+			move();
+		}
+	}
+	private void cleanUp() {
+		move();
+		while (beepersPresent()) {
+			pickBeeper();
+		}
+		turnAround();
+		move();
+	}
+}

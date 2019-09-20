@@ -1,0 +1,12 @@
+/*
+ * 
+ * 
+ */
+
+import stanford.karel.*;
+
+public class DefendDemocracy extends SuperKarel{
+	public void run() {
+		turnAround();
+	}
+}
