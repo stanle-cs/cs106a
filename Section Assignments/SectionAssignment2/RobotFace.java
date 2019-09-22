@@ -53,11 +53,11 @@ public class RobotFace extends GraphicsProgram{
 		// Draw "Left Eye" circle
 		drawCircle(offsetLeftEyeX, offsetLeftEyeY, EYE_RADIUS, Color.YELLOW);
 		
-		//Decide where to draw the "Left Eye" circle
+		//Decide where to draw the "Right Eye" circle
 		double offsetRightEyeX = middleX + (HEAD_WIDTH / 4);
 		double offsetRightEyeY = middleY -(HEAD_HEIGHT / 4);
 		
-		// Draw "Left Eye" circle
+		// Draw "Right Eye" circle
 		drawCircle(offsetRightEyeX, offsetRightEyeY, EYE_RADIUS, Color.YELLOW);
 		
 		// Decide where to draw "Mouth" box
