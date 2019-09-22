@@ -16,8 +16,9 @@
 import acm.program.*;
 
 public class Hailstone extends ConsoleProgram {
+	
 	public void run() {
-		
+		// Init
 		int n = readInt("Enter a number: ");
 		int total = 0;
 		boolean success = true;

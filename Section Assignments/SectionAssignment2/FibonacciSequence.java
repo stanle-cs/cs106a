@@ -11,7 +11,7 @@ import acm.program.*;
 public class FibonacciSequence extends ConsoleProgram{
 	
 	// Maximum term value that will be computed
-	public final int MAX_TERM_VALUE = 10000;
+	public static final int MAX_TERM_VALUE = 10000;
 	
 	public void run() {
 		

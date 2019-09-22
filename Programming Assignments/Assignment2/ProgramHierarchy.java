@@ -18,11 +18,10 @@ import acm.program.*;
 public class ProgramHierarchy extends GraphicsProgram {	
 	
 	// The width of the boxes
-	public final double RECT_WIDTH = 146;
+	public static final double RECT_WIDTH = 146;
 	
 	// The height of the boxes
-	public final double RECT_HEIGHT = 48;
-	
+	public static final double RECT_HEIGHT = 48;
 	
 	public void run() {
 		

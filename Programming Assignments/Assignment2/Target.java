@@ -17,7 +17,7 @@ import java.awt.*;
 public class Target extends GraphicsProgram {	
 	
 	// How many pixel per inch
-	public final int oneInch = 72;
+	public static final int PIXEL_IN_ONE_INCH = 72;
 	
 	public void run() {
 		
@@ -26,7 +26,7 @@ public class Target extends GraphicsProgram {
 		final int middleY = getHeight() / 2;
 		
 		// Draw big circle
-		int r = oneInch;
+		int r = PIXEL_IN_ONE_INCH;
 		add(drawCircle(middleX, middleY, r, Color.RED));
 		
 		// Draw medium circle

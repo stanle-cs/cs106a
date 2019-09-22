@@ -16,7 +16,7 @@ import acm.program.*;
 public class FindRange extends ConsoleProgram {
 	
 	// The sentinel value used to end input
-	public final int SENTINEL = 0;
+	public static final int SENTINEL = 0;
 	
 	public void run() {
 		

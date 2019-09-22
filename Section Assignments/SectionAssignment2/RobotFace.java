@@ -16,19 +16,19 @@ import java.awt.*;
 public class RobotFace extends GraphicsProgram{
 	
 	// The width of the head
-	public final int HEAD_WIDTH = 230;
+	public static final int HEAD_WIDTH = 230;
 	
 	// The height of the head
-	public final double HEAD_HEIGHT = 380;
+	public static final double HEAD_HEIGHT = 380;
 	
 	// The width of the mouth
-	public final double MOUTH_WIDTH = 120;
+	public static final double MOUTH_WIDTH = 120;
 	
 	// The height of the mouth
-	public final double MOUTH_HEIGHT = 50;
+	public static final double MOUTH_HEIGHT = 50;
 	
 	// The radius of the eye
-	public final double EYE_RADIUS = 30;
+	public static final double EYE_RADIUS = 30;
 	
 	public void run() {
 
