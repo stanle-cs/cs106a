@@ -15,7 +15,7 @@ import java.applet.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Breakout extends GraphicsProgram {
+public class Breakout extends GraphicsProgram implements MouseMotionListener{
 
 /** Width and height of application window in pixels */
 	public static final int APPLICATION_WIDTH = 400;
@@ -26,7 +26,7 @@ public class Breakout extends GraphicsProgram {
 	private static final int HEIGHT = APPLICATION_HEIGHT;
 
 /** Dimensions of the paddle */
-	private static final int PADDLE_WIDTH = 60;
+	private static final int PADDLE_WIDTH = 180;
 	private static final int PADDLE_HEIGHT = 10;
 
 /** Offset of the paddle up from the bottom */
@@ -60,6 +60,8 @@ public class Breakout extends GraphicsProgram {
 /** Actual paddle Y coordinate*/
 	private static final int PADDLE_Y = HEIGHT - PADDLE_Y_OFFSET - PADDLE_HEIGHT;
 
+/** Ball diameter */
+	private static final int BALL_DIAMETER = BALL_RADIUS*2;
 	
 	
 /** Instance variables*/
@@ -67,11 +69,13 @@ public class Breakout extends GraphicsProgram {
 	private RandomGenerator rgen = RandomGenerator.getInstance();
 	private GRect paddle = new GRect(0,0,0,0);
 	private GOval ball = new GOval(0,0,0,0);
+	private GRect blankArea = new GRect(0, 0, WIDTH, HEIGHT);
 	/* Method: run() */
 /** Runs the Breakout program. */
 	public void run() {
 		/* You fill this in, along with any subsidiary methods */
-
+		
+		
 		initScene();
 		ball = initBall();
 		paddle = initPaddle();
@@ -80,27 +84,93 @@ public class Breakout extends GraphicsProgram {
 		if (rgen.nextBoolean(0.5)) vX = -vX;
 		vY = -3.0;	
 		
-		while (ball.getX() < WIDTH) { 
-			ball.setLocation(ball.getX() + vX,ball.getY() + vY);
-			
-			pause(25);
-			println(ball.getX());
+		while (true) { 
+			ball.move(vX,vY);
+			pause(15);
+			checkCollision();
 		}
 		
-		add(new GLine((WIDTH) / 2, 0, (WIDTH) / 2, HEIGHT));
+		//add(new GLine((WIDTH) / 2, 0, (WIDTH) / 2, HEIGHT));
 	}
 	
+    void eventOutput(String eventDescription, MouseEvent e) {
+        println(eventDescription
+                + " (" + e.getX() + "," + e.getY() + ")"
+                + " detected on "
+                + e.getComponent().getClass().getName()
+                );
+    }
+    
+    
+    
+    public void mouseMoved(MouseEvent e) {
+        eventOutput("Mouse moved", e);
+    }
+    
+    
+    
+	private void checkCollision() {
+		double ballX = ball.getX();
+		double ballY = ball.getY();
+		
+		GPoint ballNW = new GPoint(ballX, ballY);
+		GPoint ballSW = new GPoint(ballX, ballY + BALL_DIAMETER);
+		GPoint ballNE = new GPoint(ballX + BALL_DIAMETER, ballY);
+		GPoint ballSE = new GPoint(ballX + BALL_DIAMETER, ballY + BALL_DIAMETER);
+		
+		
+		if (ballX < 0 || (ballX + BALL_DIAMETER) > WIDTH) vX = -vX;
+		if (ballY < 0 || (ballY + BALL_DIAMETER) > HEIGHT) vY = -vY;
+		
+		if (isBrick(ballSW)) {
+			remove(getElementAt(ballSW));
+			vY = -vY;
+		}
+		if (isBrick(ballSE)) {
+			remove(getElementAt(ballSE));
+			vY = -vY;
+		}
+		if (isBrick(ballNW)) {
+			remove(getElementAt(ballNW));
+			vY = -vY;
+		}
+		if (isBrick(ballNE)) {
+			remove(getElementAt(ballNE));
+			vY = -vY;
+		}
+		
+		
+		
+		
+		
+	}
+	
+	private boolean isBrick(GPoint point) {
+		if (getElementAt(point) == blankArea) println(getElementAt(point).getClass());
+		return (getElementAt(point) != paddle && getElementAt(point) != null && getElementAt(point) != blankArea);
+	}
+	
+	
 	private void initScene() {
+		
+		GRect blankArea = new GRect(4, 4, WIDTH /2, HEIGHT/2);
+		blankArea.setColor(Color.GRAY);
+        //blankArea.addMouseMotionListener(this);
+		//addMouseMotionListener(this);
+		blankArea.setFilled(true);
+		add(blankArea);
+		
+		
 		drawAllBrick();
 	}
 	
 	private GOval initBall() {
 		
 		int ballX = (WIDTH) / 2 - BALL_RADIUS;
-		int ballDiameter = BALL_RADIUS*2;
-		int ballY = PADDLE_Y - ballDiameter;
+		
+		int ballY = PADDLE_Y - BALL_DIAMETER;
 				
-		GOval ball = new GOval(ballX, ballY, ballDiameter, ballDiameter);
+		GOval ball = new GOval(ballX, ballY, BALL_DIAMETER, BALL_DIAMETER);
 		ball.setFilled(true);
 		ball.setColor(Color.BLACK);
 		add(ball);
@@ -111,6 +181,11 @@ public class Breakout extends GraphicsProgram {
 	private void paddleMove(GRect paddle, int x) {
 		paddle.setLocation(x, PADDLE_Y);
 	}
+	
+	
+		
+	
+	
 	
 	private GRect initPaddle() {
 		GRect paddle = new GRect((WIDTH - PADDLE_WIDTH) / 2, PADDLE_Y, PADDLE_WIDTH, PADDLE_HEIGHT);
@@ -130,19 +205,20 @@ public class Breakout extends GraphicsProgram {
 			for (int j = 0; j < NBRICK_ROWS; j++) {
 			
 				switch (i / 2) {
-				case 1:
-					color = Color.ORANGE;
-					break;
-				case 2:
-					color = Color.YELLOW;
-					break;
-				case 3:
-					color = Color.GREEN;
-					break;
-				case 4:
-					color = Color.CYAN;
-					break;
+					case 1:
+						color = Color.ORANGE;
+						break;
+					case 2:
+						color = Color.YELLOW;
+						break;
+					case 3:
+						color = Color.GREEN;
+						break;
+					case 4:
+						color = Color.CYAN;
+						break;
 				}
+				
 				drawBrick(2 + (BRICK_WIDTH + BRICK_SEP)*j, BRICK_Y_OFFSET + (BRICK_HEIGHT + BRICK_SEP)*i, color);
 			}
 		}
