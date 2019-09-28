@@ -4,5 +4,13 @@ For students who uses x86_64 (64-bit) version of Windows and would like to use t
       (Needs to sign up for an account. A free hassle.)
       Remember to download the x86 version (I586-p.exe one).
       https://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase14-419411.html
-  3. Install this version of java into eclipse/jre and you can now start the class.
+  3. Install this version of java into eclipse/jre and you can now start the class. Remember to rename it jre not jre6.
+
+For students having troubles with getting the aassignments done with modern IDE like Eclipse 2019:
+  1. Import your assignment into Eclipse.
+  2. Find the run button and click the small drop-down icon next to it.
+  3. Click Run Configure...
+  4. Configure these parameters:
+    - Main class: standford.karel.Karel
+    - Argument: code="the name of the class you are working on"
 That's it. Have fun and good luck!
