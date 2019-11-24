@@ -1,3 +1,10 @@
+/**
+ * Filename: RandomCircles.java
+ * 
+ * stanle-cs said:
+ * A GraphicsProgram that draws a set of ten circles with different sizes, positions and colors.
+ */
+
 import acm.program.*;
 import acm.graphics.*;
 import acm.util.*;
@@ -10,22 +17,30 @@ public class RandomCircles extends GraphicsProgram{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	/** Random Generator*/
 	RandomGenerator rgen = RandomGenerator.getInstance();
-	public static final double WIDTH = 100;
-	public static final double HEIGHT = 100;
+	
+	/** Width of the window*/
+	public static final double WIDTH = 600;
+	
+	/** Height of the window*/
+	public static final double HEIGHT = 600;
+	
+	/** Number of circles*/
+	public static final int NUMBER_OF_CIRCLES = 10;
 	
 	public void run() {
 		
-		for (int i = 1; i < 10; i++) {
+		for (int i = 1; i < NUMBER_OF_CIRCLES; i++) {
 			
-			double randd = rgen.nextDouble(5.0, 50.0);
+			// Randomize size, color and location of new circle
+			double randd = rgen.nextDouble(5.0, 300.0);
 			double randx = rgen.nextDouble(randd / 2, WIDTH - randd / 2);
 			double randy = rgen.nextDouble(randd / 2, HEIGHT - randd / 2);
 			Color color = rgen.nextColor();
 			
-			add( new GRect(0, 0, WIDTH, HEIGHT));
-		
-			
+			// Draw the new circle
 			GOval circle = new GOval(randx, randy, randd / 2, randd / 2);
 			circle.setColor(color);
 			circle.setFilled(true);
