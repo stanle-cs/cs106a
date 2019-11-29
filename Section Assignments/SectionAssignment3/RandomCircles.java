@@ -32,7 +32,7 @@ public class RandomCircles extends GraphicsProgram{
 	
 	public void run() {
 		
-		for (int i = 1; i < NUMBER_OF_CIRCLES; i++) {
+		for (int i = 0; i < NUMBER_OF_CIRCLES; i++) {
 			
 			// Randomize size, color and location of new circle
 			double randd = rgen.nextDouble(5.0, 300.0);
