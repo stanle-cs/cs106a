@@ -14,6 +14,11 @@ public class RandomCircles extends GraphicsProgram{
 	public static final double WIDTH = 100;
 	public static final double HEIGHT = 100;
 	
+	public static void main(String[] args) {
+		RandomCircles rc = new RandomCircles();
+		rc.start(args);
+	}
+
 	public void run() {
 		
 		for (int i = 1; i < 10; i++) {

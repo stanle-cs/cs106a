@@ -1,4 +1,3 @@
-import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -8,7 +7,12 @@ import acm.program.*;
 
 public class DrawLine extends GraphicsProgram implements MouseMotionListener, MouseListener{
 	
-	GLine line = new GLine(0,0,0,0);
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
+
+	GLine line = new GLine(0, 0, 0, 0);
 	
 	
 	int width = 300;
