@@ -9,6 +9,7 @@
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
             "mainClass": "${fileBasename}",
             "classPaths": [
                 "acm.jar"
