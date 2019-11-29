@@ -30,6 +30,11 @@ public class RandomCircles extends GraphicsProgram{
 	/** Number of circles*/
 	public static final int NUMBER_OF_CIRCLES = 10;
 	
+	public static void main(String[] args) {
+		RandomCircles rc = new RandomCircles();
+		rc.start(args);
+	}
+
 	public void run() {
 		
 		for (int i = 0; i < NUMBER_OF_CIRCLES; i++) {

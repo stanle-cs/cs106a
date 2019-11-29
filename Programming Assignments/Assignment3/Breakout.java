@@ -25,7 +25,7 @@ import java.awt.event.*;
  * a ball is launched from the center of the window toward the bottom of
  * the screen at a random angle. That ball bounces off the paddle and the
  * walls of the world, in accordance with the physical principle generally
- * expressed as “the angle of incidence equals the angle of reflection”.
+ * expressed as ï¿½the angle of incidence equals the angle of reflectionï¿½.
  * The play on a turn continues in this way until one of two conditions
  * occurs:
  * 1. The ball hits the lower wall, which means that the player must have
@@ -155,7 +155,12 @@ public class Breakout extends GraphicsProgram implements MouseMotionListener{
 	/** Current life*/
 	private int life = NTURNS;
 	
-	
+
+	public static void main(String[] args) {
+		Breakout bo = new Breakout();
+		bo.start(args);
+	}
+
 	/* Method: run() */
 /** 
  * Runs the Breakout program. 
