@@ -28,9 +28,14 @@ public class Hangman extends ConsoleProgram {
 	private StringBuilder guessingWord = new StringBuilder("");
 
 	/** Set of char already guessed by player */
-	private Set<Character> GuessedChar = new HashSet<Character>();
+	private Set<Character> guessedChar = new HashSet<Character>();
 
-		boolean done = false;
+	/** Indicate the state of the game, finished or not */
+	private	boolean done = false;
+
+	/** Number of life player has */
+	private int life = 8;
+	
 	/**
 	 * Fill the lexiconLibrary with data from the inputFile and
 	 * return one random lexicon from the library
@@ -90,31 +95,50 @@ public class Hangman extends ConsoleProgram {
 		println("Welcome to Hangman!\nThe secret word is " + secretWord);
 		while (true) {
 			String inputChar = readLine("Input one char (upper case): ");
-			char ch = inputChar.charAt(0);
+			String upercaseInput = inputChar.toUpperCase();
+			char ch = upercaseInput.charAt(0);
 			guessChar(ch);
-			println(guessingWord);
-			println("Guessed characters: " + GuessedChar.toString());
-			if (guessingWord.toString().equalsIgnoreCase(secretWord)) {
-				done = true;
-				println("You win!");
-				break;
-			}
+			println("Word looks like this: " + guessingWord);
+			println("Guessed characters: " + guessedChar.toString());
+			checkIfDone();
+			if (done) break;
+		}
+	}
+
+	/**
+	 * Check if the secret word has been guessed correctly.
+	 * If player run out of life, game results in a lost.
+	 */
+	private void checkIfDone() {
+		if (guessingWord.toString().equals(secretWord)) {
+			done = true;
+			println("You win!");
+		}
+		else if (life == 0) {
+			done = true;
+			println("You lose!");
 		}
 	}
 
 	private void guessChar(char guess) {
-		GuessedChar.add(guess);
-		for (int i = 0; i < secretWord.length(); i++) {
-			if (secretWord.charAt(i) == guess) {
-				println("Correct!");
-				guessingWord.setCharAt(i, guess);
-			}
-			else {
-				println("Wrong!");
-			}
-		}
+		guessedChar.add(guess);
+		checkSecret(guess);
 	}
 
+	private void checkSecret(char guess) {
+		boolean found = false;
+		for (int i = 0; i < secretWord.length(); i++) {
+			if (guess == secretWord.charAt(i)) {
+				guessingWord.setCharAt(i, guess);
+				found = true;
+			}
+		}
+		if (found) println("Correct!");
+		else {
+			println("Wrong!");
+			life--;
+		}
+	}
 	/**
 	 * Main method used to start the whole program
 	 * @param args Not used but neat to have anyways
@@ -129,4 +153,5 @@ public class Hangman extends ConsoleProgram {
 	
 	/** Name of the input file */
 	private static final String INPUTFILENAME = "HangmanLexicon.txt";
+	
 }
