@@ -90,16 +90,21 @@ public class Hangman extends ConsoleProgram {
 		/* You fill this in */
 		secretWord = getLexicon(INPUTFILENAME);
 		for (int i = 0; i < secretWord.length(); i++) {
-			guessingWord.append('_');
+			guessingWord.append('-');
 		}
-		println("Welcome to Hangman!\nThe secret word is " + secretWord);
+		println("Welcome to Hangman!\nThe word now looks like this " + guessingWord);
 		while (true) {
-			String inputChar = readLine("Input one char (upper case): ");
+			
+			String inputChar = "";
+			inputChar = readLine("Your guess: ");
+			while (inputChar.length() > 1) {
+			inputChar = readLine("Illegal guess.\nYour new guess: ");
+			}
 			String upercaseInput = inputChar.toUpperCase();
 			char ch = upercaseInput.charAt(0);
 			guessChar(ch);
-			println("Word looks like this: " + guessingWord);
-			println("Guessed characters: " + guessedChar.toString());
+			println("The word now looks like this: " + guessingWord);
+
 			checkIfDone();
 			if (done) break;
 		}
@@ -112,11 +117,11 @@ public class Hangman extends ConsoleProgram {
 	private void checkIfDone() {
 		if (guessingWord.toString().equals(secretWord)) {
 			done = true;
-			println("You win!");
+			println("You guessed the word: "+ guessingWord.toString() + "\nYou win.");
 		}
 		else if (life == 0) {
 			done = true;
-			println("You lose!");
+			println("You're completely hung.\nThe word was: " + secretWord + "\nYou lose.");
 		}
 	}
 
@@ -133,10 +138,10 @@ public class Hangman extends ConsoleProgram {
 				found = true;
 			}
 		}
-		if (found) println("Correct!");
+		if (found) println("That guess is correct.");
 		else {
-			println("Wrong!");
 			life--;
+			println("There are no " + guess + "'s in the word.\nYou have " + life + " guesses left.");
 		}
 	}
 	/**
